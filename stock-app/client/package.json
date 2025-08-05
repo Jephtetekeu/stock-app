@@ -19,7 +19,7 @@
     "react-router-dom": "^7.7.1",
     "react-scripts": "^5.0.1"
   },
-  "proxy": "http://localhost:5000",
+  "proxy": "https://stock-app-backend-tgy8.onrender.com",
   "browserslist": {
     "production": [
       ">0.2%",
