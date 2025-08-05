@@ -24,10 +24,10 @@ const ItemForm = ({ onItemAdded }) => {
             'x-auth-token': localStorage.getItem('token'),
           },
         };
-        const storesRes = await axios.get('/api/stores', config);
+        const storesRes = await axios.get(`${process.env.REACT_APP_API_URL}/api/stores`, config);
         setStores(storesRes.data);
 
-        const categoriesRes = await axios.get('/api/categories', config);
+        const categoriesRes = await axios.get(`${process.env.REACT_APP_API_URL}/api/categories`, config);
         setCategories(categoriesRes.data);
       } catch (err) {
         console.error(err.response.data);
@@ -49,7 +49,7 @@ const ItemForm = ({ onItemAdded }) => {
         },
       };
       const body = JSON.stringify(formData);
-      const res = await axios.post('/api/items', body, config);
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/items`, body, config);
       console.log(res.data);
       onItemAdded();
       setFormData({

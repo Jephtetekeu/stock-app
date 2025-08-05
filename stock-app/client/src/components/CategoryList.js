@@ -12,7 +12,7 @@ const CategoryList = ({ refresh }) => {
             'x-auth-token': localStorage.getItem('token'),
           },
         };
-        const res = await axios.get('/api/categories', config);
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/categories`, config);
         setCategories(res.data);
       } catch (err) {
         console.error(err.response.data);
@@ -28,7 +28,7 @@ const CategoryList = ({ refresh }) => {
           'x-auth-token': localStorage.getItem('token'),
         },
       };
-      await axios.delete(`/api/categories/${id}`, config);
+      await axios.delete(`${process.env.REACT_APP_API_URL}/api/categories/${id}`, config);
       setCategories(categories.filter(category => category._id !== id));
     } catch (err) {
       console.error(err.response.data);

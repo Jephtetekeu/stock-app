@@ -14,7 +14,7 @@ const CategoryForm = ({ onCategoryAdded }) => {
         },
       };
       const body = JSON.stringify({ name });
-      const res = await axios.post('/api/categories', body, config);
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/categories`, body, config);
       console.log(res.data);
       onCategoryAdded();
       setName('');

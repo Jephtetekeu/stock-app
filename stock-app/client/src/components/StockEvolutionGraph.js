@@ -36,7 +36,7 @@ const StockEvolutionGraph = ({ itemId }) => {
             'x-auth-token': localStorage.getItem('token'),
           },
         };
-        const res = await axios.get(`/api/items/${itemId}/history`, config);
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/items/${itemId}/history`, config);
         const history = res.data;
 
         // Sort history by date to ensure correct graph display

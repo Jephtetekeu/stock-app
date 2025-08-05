@@ -28,11 +28,11 @@ const Auth = ({ onLogin }) => {
       const body = JSON.stringify(formData);
 
       if (isRegister) {
-        const res = await axios.post('/api/auth/register', body, config);
+        const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/register`, body, config);
         localStorage.setItem('token', res.data.token);
         onLogin();
       } else {
-        const res = await axios.post('/api/auth/login', body, config);
+        const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/login`, body, config);
         localStorage.setItem('token', res.data.token);
         onLogin();
       }

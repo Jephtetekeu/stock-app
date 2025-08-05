@@ -12,7 +12,7 @@ const OrderList = ({ refresh }) => {
             'x-auth-token': localStorage.getItem('token'),
           },
         };
-        const res = await axios.get('/api/orders', config);
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/orders`, config);
         setOrders(res.data);
       } catch (err) {
         console.error(err.response.data);
@@ -29,9 +29,9 @@ const OrderList = ({ refresh }) => {
           'x-auth-token': localStorage.getItem('token'),
         },
       };
-      await axios.put(`/api/orders/${orderId}`, { status: newStatus }, config);
+      await axios.put(`${process.env.REACT_APP_API_URL}/api/orders/${orderId}`, { status: newStatus }, config);
       // Refresh the list to show updated status and potentially updated item quantities
-      const res = await axios.get('/api/orders', config);
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/orders`, config);
       setOrders(res.data);
     } catch (err) {
       console.error(err.response.data);
@@ -45,7 +45,7 @@ const OrderList = ({ refresh }) => {
           'x-auth-token': localStorage.getItem('token'),
         },
       };
-      await axios.delete(`/api/orders/${id}`, config);
+      await axios.delete(`${process.env.REACT_APP_API_URL}/api/orders/${id}`, config);
       setOrders(orders.filter(order => order._id !== id));
     } catch (err) {
       console.error(err.response.data);

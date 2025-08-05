@@ -15,7 +15,7 @@ const ItemList = ({ refresh }) => {
             'x-auth-token': localStorage.getItem('token'),
           },
         };
-        const res = await axios.get('/api/items', config);
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/items`, config);
         setItems(res.data);
         // Initialize quantity inputs with current item quantities
         const initialQuantityInputs = {};
@@ -37,7 +37,7 @@ const ItemList = ({ refresh }) => {
           'x-auth-token': localStorage.getItem('token'),
         },
       };
-      await axios.delete(`/api/items/${id}`, config);
+      await axios.delete(`${process.env.REACT_APP_API_URL}/api/items/${id}`, config);
       setItems(items.filter(item => item._id !== id));
     } catch (err) {
       console.error(err.response.data);

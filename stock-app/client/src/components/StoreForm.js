@@ -18,7 +18,7 @@ const StoreForm = ({ onStoreAdded }) => {
         },
       };
       const body = JSON.stringify({ name, address, currency });
-      const res = await axios.post('/api/stores', body, config);
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/stores`, body, config);
       console.log(res.data);
       onStoreAdded(); // Callback to refresh store list
       setName('');

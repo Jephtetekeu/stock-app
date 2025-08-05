@@ -12,7 +12,7 @@ const DashboardSummary = () => {
             'x-auth-token': localStorage.getItem('token'),
           },
         };
-        const res = await axios.get('/api/dashboard', config);
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/dashboard`, config);
         setSummaryData(res.data);
       } catch (err) {
         console.error(err.response.data);

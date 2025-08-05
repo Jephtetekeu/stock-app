@@ -15,7 +15,7 @@ const OrderForm = ({ onOrderAdded }) => {
             'x-auth-token': localStorage.getItem('token'),
           },
         };
-        const res = await axios.get('/api/stores', config);
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/stores`, config);
         setStores(res.data);
       } catch (err) {
         console.error(err.response.data);
@@ -33,7 +33,7 @@ const OrderForm = ({ onOrderAdded }) => {
               'x-auth-token': localStorage.getItem('token'),
             },
           };
-          const res = await axios.get(`/api/items?store=${selectedStore}`, config);
+          const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/items?store=${selectedStore}`, config);
           setAvailableItems(res.data);
         } catch (err) {
           console.error(err.response.data);
@@ -80,7 +80,7 @@ const OrderForm = ({ onOrderAdded }) => {
         },
       };
       const body = JSON.stringify({ store: selectedStore, items: orderItems.map(oi => ({ item: oi.item, quantity: oi.quantity })) });
-      const res = await axios.post('/api/orders', body, config);
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/orders`, body, config);
       console.log(res.data);
       onOrderAdded();
       setSelectedStore('');

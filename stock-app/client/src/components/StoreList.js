@@ -12,7 +12,7 @@ const StoreList = ({ refresh }) => {
             'x-auth-token': localStorage.getItem('token'),
           },
         };
-        const res = await axios.get('/api/stores', config);
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/stores`, config);
         setStores(res.data);
       } catch (err) {
         console.error(err.response.data);
@@ -28,7 +28,7 @@ const StoreList = ({ refresh }) => {
           'x-auth-token': localStorage.getItem('token'),
         },
       };
-      await axios.delete(`/api/stores/${id}`, config);
+      await axios.delete(`${process.env.REACT_APP_API_URL}/api/stores/${id}`, config);
       setStores(stores.filter(store => store._id !== id));
     } catch (err) {
       console.error(err.response.data);
