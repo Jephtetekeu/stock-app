@@ -1,0 +1,80 @@
+Création d'une application web de gestion de stock multiboutique
+
+Je souhaite créer une application web de gestion de stock pour mon site e-commerce. Cette application doit inclure les fonctionnalités suivantes :
+🔐 Authentification :
+
+    Système d’inscription / connexion pour chaque utilisateur
+
+    Chaque utilisateur doit gérer ses propres données (pas d’accès aux autres utilisateurs)
+
+🛍️ Gestion des boutiques :
+
+    Un utilisateur peut créer plusieurs boutiques / magasins
+
+    Chaque boutique a un nom, une adresse (facultative), et un identifiant unique
+
+    Les articles sont associés à une ou plusieurs boutiques
+
+📦 Gestion des articles :
+
+Chaque article comporte les informations suivantes :
+
+    Nom de l'article (obligatoire)
+
+    Prix unitaire (obligatoire)
+
+    Quantité en stock (obligatoire)
+
+    Catégorie (exemples : électronique, vêtements, alimentation — je veux pouvoir créer mes propres catégories)
+
+    Image du produit (facultative)
+
+    Seuil minimum de stock (obligatoire) : lorsqu’un article atteint ou passe en dessous de ce seuil, une alerte est générée
+
+📂 Gestion des catégories :
+
+    L’utilisateur peut créer ses propres catégories d’articles
+
+    Chaque article doit appartenir à une seule catégorie
+
+🧾 Suivi des commandes :
+
+    Il faut pouvoir créer des commandes avec les statuts suivants :
+
+        En attente
+
+        En cours
+
+        Livrée
+
+        Annulée
+
+    Chaque commande inclut :
+
+        Une liste d’articles commandés
+
+        La quantité commandée pour chaque article
+
+        La boutique concernée
+
+        La date de commande
+
+    Lorsque la commande est livrée, la quantité en stock de chaque article est automatiquement mise à jour
+
+📉 Alertes & seuils critiques :
+
+    Lorsqu’un article atteint ou passe en dessous de son seuil de stock minimal :
+
+        Une alerte visuelle est affichée dans l’interface
+
+        Une notification par email peut être envisagée (optionnelle)
+
+📊 Tableau de bord :
+
+    Résumé global du stock pour chaque boutique
+
+    Affichage des alertes de stock
+
+    Nombre de commandes en cours / livrées
+
+    Graphique d’évolution des stocks (facultatif mais souhaité)
